@@ -52,10 +52,28 @@ const retailCompanies = companies.filter(company => company.category==="Retail")
 const eightiesCompanies = companies.filter(company => company.start>1980 && company.end <1990)
 const lastedTenYearsCompanies = companies.filter(company =>(company.end - company.start >= 10))
 const companyNames = companies.map(company => company.name);
-const test = companies.map(function(company){
- return "${company.name} [${company.start} - ${company.end}]";
-})
-console.log(test);
+// const test = companies.map(company => '${company.name} [${company.start} - ${company.end}]')
+
+// using two map one after one another within same line
+const mathSquareAges = ages.map(age => Math.sqrt(age)).map(age=> age*2).map(age => age/5);  
+const sortCompanies = companies.sort((prev,next)=> (prev.start > next.start)? 1 :-1);
+const sortAges = ages.sort((a,b) => a-b); // ascending order----- for descending order we should subtract prev from next
+
+const sumAges = ages.reduce((total, age)=> total+age, 0);
+const sumCompanyLifeSycle = companies.reduce((total, company) => total + (company.end - company.start), 0);
+
+const usingAllMethods = ages.map(age => age*2)
+.filter(age => age>= 25)
+.sort((prev,next) => prev-next)
+.reduce((total, age) => total + age, 0);
+
+console.log(usingAllMethods);
+console.log(sumCompanyLifeSycle);
+console.log(sumAges);
+console.log(sortAges);
+console.log(sortCompanies);
+console.log(mathSquareAges);
+// console.log(test);
 console.log(companyNames);
 console.log(lastedTenYearsCompanies);
 console.log(eightiesCompanies);
