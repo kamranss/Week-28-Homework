@@ -1,48 +1,74 @@
+const companies = [
+    {name: "Company one", category: "Finance", start: 1981, end: 2003},
+    {name: "Company two", category: "Retail", start: 1992, end: 2008},
+    {name: "Company three", category: "Auto", start: 1999, end: 2007},
+    {name: "Company four", category: "Retail", start: 1989, end: 2010},
+    {name: "Company five", category: "Technology", start: 2009, end: 2014},
+    {name: "Company six", category: "Finance", start: 1987, end: 2010},
+    {name: "Company seven", category: "Auto", start: 1986, end: 1996},
+    {name: "Company eight", category: "Technology", start: 2011, end: 2016},
+    {name: "Company nine", category: "Retail", start: 1981, end: 1989  },
+];
 
 
-function content_style(){
-    // h3_content.value = "";
-    // p_content.value = "";
-    let content = document.getElementById("content");
-    content.style.opacity = "1";
-
-}
-
-let buttons = Array.from(document.querySelectorAll(".btn"));
-let h3 = document.getElementById("h3_content");
-let p = document.getElementById("p_content");
-
-const h3_con1 = "London";
-const h3_con2 = "Paris";
-const h3_con3 = "Tokyo";
-
-const p_con1 = "London is the capital city of England.";
-const p_con2 = "Paris is the capital of France.";
-const p_con3 = "Tokyo is the capital of Japan.";
+const ages = [33,12,20,15,17,45,65,73,2,89,65,32,36,29,73,61,57,66,54,53];
 
 
-buttons.forEach(btn=>{
-    btn.addEventListener("click", function(){
-        // clickedBox?clickedBox.
-        let buttons_data_id = btn.getAttribute("data-id")
+// for (let i = 0; i < companies.length; i++) {
+//     console.log(companies[i]);   
+// }
 
-        switch (buttons_data_id) {
-            case "london":
-                h3.innerText = h3_con1
-                p.innerText = p_con1
-                break;
-            case "paris":
-                h3.innerText = h3_con2;
-                p.innerText = p_con2;
-                break;
-            case "tokyo":
-                h3.innerText = h3_con3;
-                p.innerText = p_con3;
-        
-            default:
-                break;
-        }
-        content_style();
-    })
+// companies.forEach(function(Company){
+//     console.log(Company);
+// })
+
+// let canDrink = [];
+// for (let i = 0; i < ages.length; i++) {
+//     if (ages[i]>20) {
+//         canDrink.push(ages[i]); 
+//     }
+// }
+
+// let canDrink = ages.filter(function(age){
+//     if(age>=21){
+//         return true
+//     }
+// })
+
+let canDrink = ages.filter(age => age>=21);
+
+
+console.log(canDrink);
+
+
+
+// const retailCompanies = companies.filter(function(company){
+//     if (company.category === "Retail") {
+//         return true;
+//     }
+// });
+
+const retailCompanies = companies.filter(company => company.category==="Retail");
+const eightiesCompanies = companies.filter(company => company.start>1980 && company.end <1990)
+const lastedTenYearsCompanies = companies.filter(company =>(company.end - company.start >= 10))
+const companyNames = companies.map(company => company.name);
+const test = companies.map(function(company){
+ return "${company.name} [${company.start} - ${company.end}]";
 })
+console.log(test);
+console.log(companyNames);
+console.log(lastedTenYearsCompanies);
+console.log(eightiesCompanies);
+console.log(retailCompanies);
 
+
+
+
+
+
+
+//foreach
+//map
+//filter
+//reduce
+//sort
