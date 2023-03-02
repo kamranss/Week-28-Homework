@@ -1,12 +1,10 @@
 
+let contentstl = document.getElementById("content");
 
-function content_style(){
-    // h3_content.value = "";
-    // p_content.value = "";
-    let content = document.getElementById("content");
-    content.style.transition=("0.3s");
-    content.style.opacity = "1";
-
+function content_style(content){
+    content.style.opacity = 0;
+    setTimeout(() => {
+        content.style.opacity = 1;}, 300);
 }
 
 let buttons = Array.from(document.querySelectorAll(".btn"));
@@ -21,14 +19,6 @@ const content = {
 
 const content_Key_and_Values = Object.keys(content);
 
-// const h3_con1 = "London";
-// const h3_con2 = "Paris";
-// const h3_con3 = "Tokyo";
-
-// const p_con1 = "London is the capital city of England.";
-// const p_con2 = "Paris is the capital of France.";
-// const p_con3 = "Tokyo is the capital of Japan.";
-
 
 buttons.forEach(btn=>{
     btn.addEventListener("click", function(){
@@ -37,21 +27,26 @@ buttons.forEach(btn=>{
 
         switch (buttons_data_id) {
             case "london":
+                // contentstl.style.opacity = 0;
                 h3.innerText = content_Key_and_Values[0];
                 p.innerText = content[content_Key_and_Values[0]];
+                content_style(contentstl);
+                // contentstl.style.opacity = 1;
                 break;
             case "paris":
                 h3.innerText = content_Key_and_Values[1];
                 p.innerText = content[content_Key_and_Values[1]];
+                content_style(contentstl);
                 break;
             case "tokyo":
                 h3.innerText = content_Key_and_Values[2];
                 p.innerText = content[content_Key_and_Values[2]];
-        
+                content_style(contentstl);
+            
             default:
                 break;
         }
-        content_style();
+        // content_style();
     })
 })
 
